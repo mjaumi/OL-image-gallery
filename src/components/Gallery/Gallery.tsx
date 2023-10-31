@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Photo from '../Photo/Photo';
 import { GalleryContext } from '../../context/GalleryContextProvider';
+import AddImage from '../AddImage/AddImage';
 
 const Gallery = () => {
   // integration of react hooks here
@@ -12,6 +13,8 @@ const Gallery = () => {
       {context?.gallery.map((image) => (
         <Photo key={image.id} image={image} />
       ))}
+
+      <AddImage />
     </section>
   );
 };
