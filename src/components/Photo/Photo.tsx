@@ -1,9 +1,23 @@
 import { BsCheck2 } from 'react-icons/bs';
 import { IImage } from '../../types/types';
+import { useGalleryContext } from '../../context/GalleryContextProvider';
 
 const Photo = ({ image }: { image: IImage }) => {
   // destructing the image object here
   const { id, imageUrl } = image || {};
+
+  // integration of react hooks here
+  const { selectedImages, setSelectedImages } = useGalleryContext();
+
+  const selectCheckedImageHandler = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (e.target.checked) {
+      setSelectedImages([...selectedImages, id]);
+    } else {
+      setSelectedImages(selectedImages.filter((imageId) => imageId !== id));
+    }
+  };
 
   // rendering photo component here
   return (
@@ -15,15 +29,26 @@ const Photo = ({ image }: { image: IImage }) => {
       <img src={imageUrl} alt={`product ${id}`} />
 
       <div className='absolute top-5 left-5 z-10'>
-        <input id={`checkbox_${id}`} className='peer hidden' type='checkbox' />
+        <input
+          id={`checkbox_${id}`}
+          className='peer hidden'
+          type='checkbox'
+          onChange={selectCheckedImageHandler}
+        />
         <label
-          className='block rounded border border-blue-400 bg-white peer-checked:bg-blue-400 cursor-pointer duration-300 opacity-0 group-hover:opacity-100'
+          className={`block rounded border border-blue-400 bg-white peer-checked:bg-blue-400 cursor-pointer duration-300 opacity-0 group-hover:opacity-100 ${
+            selectedImages.includes(id) && 'opacity-100'
+          }`}
           htmlFor={`checkbox_${id}`}
         >
           <BsCheck2 className='text-white h-5 w-5' />
         </label>
       </div>
-      <div className='absolute h-full w-full bg-black/40 left-0 top-0 opacity-0 group-hover:opacity-100 duration-300'></div>
+      <div
+        className={`absolute h-full w-full bg-black/40 left-0 top-0 opacity-0 group-hover:opacity-100 duration-300 ${
+          selectedImages.includes(id) && 'bg-white/40 opacity-100'
+        }`}
+      ></div>
     </div>
   );
 };

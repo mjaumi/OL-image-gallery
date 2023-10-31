@@ -1,14 +1,16 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { IImage } from '../types/types';
 
 // datatype of the gallery context declared here
 interface IGalleryContext {
   gallery: Array<IImage>;
-  selectedImages: number;
+  selectedImageCount: number;
+  selectedImages: Array<number>;
+  setSelectedImages: (arr: Array<number>) => void;
 }
 
 // creating the gallery context here
-export const GalleryContext = createContext<IGalleryContext | null>(null);
+const GalleryContext = createContext<IGalleryContext | null>(null);
 
 export default function GalleryContextProvider({
   children,
@@ -17,6 +19,7 @@ export default function GalleryContextProvider({
 }) {
   // integration of react hooks here
   const [gallery, setGallery] = useState<Array<IImage>>([]);
+  const [selectedImages, setSelectedImages] = useState<Array<number>>([]);
 
   // fetching the data from the json file here
   useMemo(() => {
@@ -27,8 +30,19 @@ export default function GalleryContextProvider({
 
   // rendering the context provider here
   return (
-    <GalleryContext.Provider value={{ gallery, selectedImages: 0 }}>
+    <GalleryContext.Provider
+      value={{
+        gallery,
+        selectedImageCount: 0,
+        selectedImages,
+        setSelectedImages,
+      }}
+    >
       {children}
     </GalleryContext.Provider>
   );
 }
+
+export const useGalleryContext = () => {
+  return useContext(GalleryContext) as IGalleryContext;
+};
