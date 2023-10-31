@@ -1,13 +1,16 @@
 import Gallery from './components/Gallery/Gallery';
 import Header from './components/Header/Header';
+import GalleryContextProvider from './context/GalleryContextProvider';
 
 function App() {
   // rendering the web application here
   return (
-    <main className='font-poppins'>
-      <Header />
-      <Gallery />
-    </main>
+    <GalleryContextProvider>
+      <main className='font-poppins'>
+        <Header />
+        <Gallery />
+      </main>
+    </GalleryContextProvider>
   );
 }
 
