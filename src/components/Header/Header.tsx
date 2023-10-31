@@ -7,7 +7,7 @@ const Header = () => {
 
   // rendering the header component here
   return (
-    <header className='h-[80px] border-b border-gray-300r'>
+    <header className='sticky top-0 h-[80px] border-b border-gray-300 bg-white'>
       <nav className='w-4/5 h-full mx-auto flex items-center justify-between'>
         <h1 className='font-black text-2xl'>
           Gallery {context?.selectedImages}
