@@ -9,6 +9,7 @@ const Photo = ({ image }: { image: IImage }) => {
   // integration of react hooks here
   const { selectedImages, setSelectedImages } = useGalleryContext();
 
+  // handler function to handle selecting images feature
   const selectCheckedImageHandler = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {

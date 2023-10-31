@@ -4,7 +4,14 @@ import { BsCheck2 } from 'react-icons/bs';
 
 const Header = () => {
   // integration of react hooks here
-  const { selectedImages } = useGalleryContext();
+  const { gallery, setGallery, selectedImages, setSelectedImages } =
+    useGalleryContext();
+
+  // handler function to handle deleting images feature
+  const deleteSelectedImagesHandler = () => {
+    setGallery(gallery.filter((image) => !selectedImages.includes(image.id)));
+    setSelectedImages([]);
+  };
 
   // rendering the header component here
   return (
@@ -22,7 +29,11 @@ const Header = () => {
                 {selectedImages.length} Files selected
               </h1>
             </div>
-            <button className='font-semibold text-red-600 hover:opacity-70 duration-300'>
+
+            <button
+              onClick={deleteSelectedImagesHandler}
+              className='font-semibold text-red-600 hover:opacity-70 duration-300'
+            >
               Delete files
             </button>
           </div>

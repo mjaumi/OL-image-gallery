@@ -4,7 +4,7 @@ import { IImage } from '../types/types';
 // datatype of the gallery context declared here
 interface IGalleryContext {
   gallery: Array<IImage>;
-  selectedImageCount: number;
+  setGallery: (arr: Array<IImage>) => void;
   selectedImages: Array<number>;
   setSelectedImages: (arr: Array<number>) => void;
 }
@@ -33,7 +33,7 @@ export default function GalleryContextProvider({
     <GalleryContext.Provider
       value={{
         gallery,
-        selectedImageCount: 0,
+        setGallery,
         selectedImages,
         setSelectedImages,
       }}
