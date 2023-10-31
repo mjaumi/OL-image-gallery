@@ -18,7 +18,7 @@ const Photo = ({ image }: { image: IImage }) => {
         className='absolute top-5 left-5 cursor-pointer z-10 opacity-0 group-hover:opacity-100 duration-300'
         type='checkbox'
       />
-      <div className='absolute h-full w-full bg-black/30 left-0 top-0 opacity-0 group-hover:opacity-100 duration-300'></div>
+      <div className='absolute h-full w-full bg-black/40 left-0 top-0 opacity-0 group-hover:opacity-100 duration-300'></div>
     </div>
   );
 };
