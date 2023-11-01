@@ -7,6 +7,8 @@ interface IGalleryContext {
   setGallery: (arr: Array<IImage>) => void;
   selectedImages: Array<number>;
   setSelectedImages: (arr: Array<number>) => void;
+  isLoading: boolean;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 // creating the gallery context here
@@ -20,6 +22,7 @@ export default function GalleryContextProvider({
   // integration of react hooks here
   const [gallery, setGallery] = useState<Array<IImage>>([]);
   const [selectedImages, setSelectedImages] = useState<Array<number>>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // fetching the data from the json file here
   useMemo(() => {
@@ -36,6 +39,8 @@ export default function GalleryContextProvider({
         setGallery,
         selectedImages,
         setSelectedImages,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
