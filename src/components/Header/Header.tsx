@@ -26,7 +26,8 @@ const Header = () => {
                 <BsCheck2 className='text-white h-5 w-5' />
               </div>
               <h1 className='font-black text-2xl'>
-                {selectedImages.length} Files selected
+                {selectedImages.length}{' '}
+                {selectedImages.length === 1 ? 'File' : 'Files'} selected
               </h1>
             </div>
 
@@ -34,7 +35,7 @@ const Header = () => {
               onClick={deleteSelectedImagesHandler}
               className='font-semibold text-red-600 hover:opacity-70 duration-300'
             >
-              Delete files
+              Delete {selectedImages.length === 1 ? 'file' : 'files'}
             </button>
           </div>
         )}
