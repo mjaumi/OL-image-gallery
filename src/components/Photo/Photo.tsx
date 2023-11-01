@@ -6,7 +6,7 @@ const Photo = ({ image }: { image: IImage }) => {
   // destructing the image object here
   const { id, imageUrl } = image || {};
 
-  // integration of react hooks here
+  // integration of context hooks here
   const { selectedImages, setSelectedImages } = useGalleryContext();
 
   // handler function to handle selecting images feature
