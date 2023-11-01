@@ -22,11 +22,7 @@ const Photo = ({ image }: { image: IImage }) => {
 
   // rendering photo component here
   return (
-    <div
-      className={`group relative border border-gray-300 rounded-xl overflow-hidden cursor-pointer ${
-        id === 1 && 'row-span-2 col-span-2'
-      }`}
-    >
+    <div className='group relative border border-gray-300 rounded-xl overflow-hidden cursor-pointer first:row-span-2 first:col-span-2'>
       <img src={imageUrl} alt={`product ${id}`} />
 
       <div className='absolute top-5 left-5 z-10'>
