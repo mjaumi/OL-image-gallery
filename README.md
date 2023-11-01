@@ -1,6 +1,6 @@
 # Image Gallery
 
-Live Preview Link: [https://ol-image-gallery-qmrmclhup-mjaumi.vercel.app](https://ol-image-gallery-qmrmclhup-mjaumi.vercel.app)
+Live Preview Link: [https://ol-image-gallery.vercel.app](https://ol-image-gallery.vercel.app)
 
 ## Description
 
