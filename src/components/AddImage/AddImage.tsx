@@ -5,7 +5,7 @@ const AddImage = () => {
   // rendering add image section here
   return (
     <div
-      className='relative group bg-gray-100 rounded-xl flex items-center justify-center border border-dashed border-gray-300 cursor-pointer overflow-hidden no-drag'
+      className='relative group min-h-[150px] bg-gray-100 rounded-xl flex items-center justify-center border border-dashed border-gray-300 cursor-pointer overflow-hidden no-drag'
       draggable='false'
     >
       <div>
